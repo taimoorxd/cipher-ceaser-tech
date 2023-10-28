@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caesar Cipher Encoder/Decoder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-800 text-white">
+
     <!-- Navbar -->
-    <nav class="bg-blue-500 p-4">
+    <nav class="bg-blue-700 p-4">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">TR Cipher</h1>
             <ul class="flex space-x-4">
@@ -19,22 +21,45 @@
         </div>
     </nav>
 
-    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md mt-8">
+    <div class="max-w-md mx-auto bg-gray-900 p-6 rounded-md shadow-md mt-8">
         <h1 class="text-2xl font-bold mb-4">Caesar Cipher Encoder/Decoder</h1>
-        <label for="message" class="text-sm text-gray-600">Enter your message:</label>
-        <textarea id="message" class="w-full p-2 mb-4 border rounded-md" placeholder="Enter your message"></textarea>
+        <label for="message" class="text-sm">Enter your message:</label>
+        <textarea id="message" class="w-full p-2 mb-4 border rounded-md bg-gray-700 text-white" placeholder="Enter your message"></textarea>
 
-        <label for "key" class="text-sm text-gray-600">Enter the key (rotation number):</label>
-        <input id="key" type="number" class="w-full p-2 mb-4 border rounded-md" placeholder="Enter the key">
+        <label for="key" class="text-sm">Enter the key (rotation number):</label>
+        <input id="key" type="number" class="w-full p-2 mb-4 border rounded-md bg-gray-700 text-white" placeholder="Enter the key">
 
         <button id="encodeBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Encode</button>
         <button id="decodeBtn" class="bg-red-500 text-white px-4 py-2 rounded-md">Decode</button>
 
         <div class="mt-4">
-            <label for="result" class="text-sm text-gray-600">Result:</label>
-            <textarea id="result" class="w-full p-2 border rounded-md" readonly></textarea>
+            <label for="result" class="text-sm">Result:</label>
+            <textarea id="result" class="w-full p-2 border rounded-md bg-gray-700 text-white" readonly></textarea>
         </div>
     </div>
+
+    <!-- Social Media Section -->
+    <div class="bg-blue-700 p-4 text-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-lg font-bold mb-2">Follow Us on Social Media</h2>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-white">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="#" class="text-white">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="#" class="text-white">
+                    <i class="fab fa-youtube fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-700 text-white p-4 text-center">
+        <p>&copy; 2023 TR Cipher. All rights reserved.</p>
+    </footer>
 
     <script>
         document.getElementById("encodeBtn").addEventListener("click", () => {
