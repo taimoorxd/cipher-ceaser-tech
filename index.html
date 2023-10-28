@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher Encoder/Decoder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-500 p-4">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">TR Cipher</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white">Home</a></li>
+                <li><a href="#" class="text-white">Contact</a></li>
+                <li><a href="#" class="text-white">About us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md mt-8">
+        <h1 class="text-2xl font-bold mb-4">Caesar Cipher Encoder/Decoder</h1>
+        <label for="message" class="text-sm text-gray-600">Enter your message:</label>
+        <textarea id="message" class="w-full p-2 mb-4 border rounded-md" placeholder="Enter your message"></textarea>
+
+        <label for "key" class="text-sm text-gray-600">Enter the key (rotation number):</label>
+        <input id="key" type="number" class="w-full p-2 mb-4 border rounded-md" placeholder="Enter the key">
+
+        <button id="encodeBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Encode</button>
+        <button id="decodeBtn" class="bg-red-500 text-white px-4 py-2 rounded-md">Decode</button>
+
+        <div class="mt-4">
+            <label for="result" class="text-sm text-gray-600">Result:</label>
+            <textarea id="result" class="w-full p-2 border rounded-md" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("encodeBtn").addEventListener("click", () => {
+            const message = document.getElementById("message").value;
+            const key = parseInt(document.getElementById("key").value);
+            const encodedMessage = caesarCipher(message, key);
+            document.getElementById("result").value = encodedMessage;
+        });
+
+        document.getElementById("decodeBtn").addEventListener("click", () => {
+            const message = document.getElementById("message").value;
+            const key = parseInt(document.getElementById("key").value);
+            const decodedMessage = caesarCipher(message, -key);
+            document.getElementById("result").value = decodedMessage;
+        });
+
+        function caesarCipher(message, key) {
+            return message.split("").map(char => {
+                if (char.match(/[a-z]/i)) {
+                    const isUpperCase = char === char.toUpperCase();
+                    const startCharCode = isUpperCase ? 65 : 97;
+                    return String.fromCharCode((char.charCodeAt(0) - startCharCode + key + 26) % 26 + startCharCode);
+                }
+                return char;
+            }).join("");
+        }
+    </script>
+</body>
+</html>
